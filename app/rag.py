@@ -19,12 +19,12 @@ data = loader.load()
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
 splits = text_splitter.split_documents(data)
 
-# vectorstore = Chroma.from_documents(documents=splits, embedding=CustomEmbedder())
+vectorstore = Chroma.from_documents(documents=splits, embedding=CustomEmbedder())
 
-# retriever = vectorstore.as_retriever()
-# template = """
-#     You are helpful assistent to answer questions based on the context {context}
-# """
+retriever = vectorstore.as_retriever()
+template = """
+    You are helpful assistent to answer questions based on the context {context}
+"""
 
 model = AzureChatOpenAI(
     openai_api_version=os.getenv('API_VERSION'),
