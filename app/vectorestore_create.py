@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 from embedder import CustomEmbedder
 load_dotenv()
 
-def vectors_database_from_htmls(directory):
+def vectors_database_from_htmls(directory: str):
 
     html_files = os.listdir(directory)
     
@@ -40,7 +40,8 @@ def vectors_database_from_htmls(directory):
 
         try:
             Chroma.from_documents(documents=splits, embedding=CustomEmbedder(), persist_directory='./chroma_db')
-        except:
+        except: 
             continue
 
-vectors_database_from_htmls('knowledge_base/processed')
+## Testing
+# vectors_database_from_htmls('knowledge_base/processed')

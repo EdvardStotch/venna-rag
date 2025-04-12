@@ -1,6 +1,4 @@
 import os
-import requests
-import json
 
 from chromadb import Documents, EmbeddingFunction, Embeddings
 from openai import AzureOpenAI
@@ -28,5 +26,5 @@ class CustomEmbedder(EmbeddingFunction):
 
         return res
 
-    def embed_query(self, text):
+    def embed_query(self, text: str|Documents) -> Embeddings:
         return self.embed_documents(text)[0]
