@@ -66,6 +66,6 @@ def generate(query, vectorstore, model):
                 )
             ]
         )
-        return response.content
+        return response.content, retrived_info
     except Exception as e:
         return f"An error occurred during response generation: {str(e)}"

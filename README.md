@@ -1,6 +1,6 @@
 # Venna-RAG
 
-Venna-RAG is a Retrieval-Augmented Generation (RAG) system designed to process and retrieve information from Venna-AI GitHub repositories and Venna-AI documentation. It generates responses using a language model and integrates vector databases, document loaders, and embeddings to provide accurate and context-aware answers.
+Venna-RAG is a Retrieval-Augmented Generation (RAG) system designed to process and retrieve information from [Venna-AI GitHub](https://github.com/vanna-ai/vanna) repositories and [Venna-AI documentation](https://vanna.ai/docs/). It generates responses using a language model and integrates vector databases, document loaders, and embeddings to provide accurate and context-aware answers.
 
 ## Features
 - **Document Retrieval**: Retrieves relevant documents from a vector database.

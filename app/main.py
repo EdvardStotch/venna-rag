@@ -49,5 +49,8 @@ class Query(BaseModel):
 
 @app.post("/ask")
 def create_item(query: Query):
-    response = generate(query.question, vectorstore, model)
-    return response
+    response, retrived_info = generate(query.question, vectorstore, model)
+    return {
+        "response": response, 
+        "kb": retrived_info
+    }
