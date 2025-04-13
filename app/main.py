@@ -2,7 +2,6 @@ import os
 
 from fastapi import FastAPI
 from pydantic import BaseModel
-from dotenv import load_dotenv
 from langchain_community.vectorstores import Chroma 
 from langchain_openai import AzureChatOpenAI
 
@@ -10,7 +9,6 @@ from app.embedder import CustomEmbedder
 from app.rag import generate
 from app.helpers import unzip
 from app.config import EXTRA_FILES
-load_dotenv()
 
 extract_path = "app"
 
