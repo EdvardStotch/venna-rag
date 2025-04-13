@@ -1,8 +1,13 @@
 import zipfile
-import io
-import os
 
-def unzip(zip_path: str, extract_path: str):
+def unzip(zip_path: str, extract_path: str) -> None:
+    """
+    Extracts the contents of a zip file to the specified directory.
+
+    Args:
+        zip_path (str): Path to the zip file.
+        extract_path (str): Directory where the contents will be extracted.
+    """
     try:
         with zipfile.ZipFile(zip_path, 'r') as zip_file:
             # Extract the contents of the zip file to the specified path

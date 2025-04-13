@@ -14,17 +14,20 @@ class CustomEmbedder(EmbeddingFunction):
         )
 
     def embed_documents(self, input: Documents) -> Embeddings:
-        
-        embeddings = self.client.embeddings.create(
-            input=input,
-            model=os.getenv('EMBEDDING_MODEL')
-        )
-
-        res = []
-        for emb in embeddings.data:
-            res.append(emb.embedding)
-
-        return res
+        try:
+            embeddings = self.client.embeddings.create(
+                input=input,
+                model=os.getenv('EMBEDDING_MODEL')
+            )
+            return [emb.embedding for emb in embeddings.data]
+        except Exception as e:
+            print(f"Error generating document embeddings: {e}")
+            return []
 
     def embed_query(self, text: str|Documents) -> Embeddings:
-        return self.embed_documents(text)[0]
+        try:
+            # Return the first embedding for a single query
+            return self.embed_documents(text)[0]
+        except IndexError:
+            print(f"Error generating embeddings for query {text}.")
+            return []
